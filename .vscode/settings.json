@@ -1,0 +1,7 @@
+{
+    "editor.fontSize": 16,
+    "files.exclude": {
+        "node_modules": true,
+        "yarn.lock": true
+    }
+}
