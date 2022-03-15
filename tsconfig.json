@@ -12,7 +12,8 @@
     "jsx": "react",
     "baseUrl": "src",
     "paths": {
-      "@/*": ["*"]
+      "@data/*": ["data/*"],
+      "@domain/*": ["domain/*"],
     },
     "allowJs": true,
     "skipLibCheck": true,
