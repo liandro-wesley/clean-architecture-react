@@ -1,8 +1,10 @@
+import { HttpTransformResponse } from '@protocols/http/http-transform-response'
+
 export type HttpPostClientParams = {
   url: string
   body?: object
 }
 
 export interface HttpPostClient {
-  post: (params: HttpPostClientParams) => Promise<void>
+  post: (params: HttpPostClientParams) => Promise<HttpTransformResponse>
 }
