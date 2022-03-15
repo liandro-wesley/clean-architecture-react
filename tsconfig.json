@@ -15,6 +15,7 @@
       "@data/*": ["data/*"],
       "@domain/*": ["domain/*"],
       "@protocols/*": ["data/protocols/*"],
+      "@errors/*": ["domain/errors/*"],
     },
     "allowJs": true,
     "skipLibCheck": true,

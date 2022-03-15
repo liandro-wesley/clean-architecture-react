@@ -9,7 +9,8 @@ module.exports = {
   moduleNameMapper: {
     '@data/(.*)': '<rootDir>/src/data/$1',
     '@protocols(.*)': '<rootDir>/src/data/protocols/$1',
-    '@domain/(.*)': '<rootDir>/src/domain/$1'
+    '@domain/(.*)': '<rootDir>/src/domain/$1',
+    '@errors/(.*)': '<rootDir>/src/domain/errors/$1'
   },
   transform: {
     '.+\\.ts$': 'ts-jest'
