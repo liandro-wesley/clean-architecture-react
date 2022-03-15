@@ -6,7 +6,8 @@
     "test": "jest --passWithNoTests",
     "test:watch": "yarn test -- --watch",
     "test:staged": "yarn test -- --findRelatedTests",
-    "test:ci": "yarn test -- --coverage"
+    "test:ci": "yarn test -- --coverage",
+    "test:clearCache": "jest --clearCache"
   },
   "license": "MIT",
   "devDependencies": {

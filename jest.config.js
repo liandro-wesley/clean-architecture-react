@@ -8,6 +8,7 @@ module.exports = {
   transformIgnorePatterns: ['./node_modules'],
   moduleNameMapper: {
     '@data/(.*)': '<rootDir>/src/data/$1',
+    '@protocols(.*)': '<rootDir>/src/data/protocols/$1',
     '@domain/(.*)': '<rootDir>/src/domain/$1'
   },
   transform: {
