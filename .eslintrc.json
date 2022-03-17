@@ -1,7 +1,14 @@
 {
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
     "extends": [
-      "standard-with-typescript"
+      "standard-with-typescript",
+      "plugin:react/recommended"
     ],
+    "plugins": ["react"],
     "parserOptions": {
       "project": "./tsconfig.json"
     },
@@ -14,6 +21,8 @@
       "@typescript-eslint/no-namespace": "off",
       "no-redeclare": "off",
       "@typescript-eslint/camelcase": "off",
-      "no-unused-vars": 0
+      "no-unused-vars": 0,
+      "react/jsx-uses-react": "error",
+      "react/jsx-uses-vars": "error"
     }
   }
