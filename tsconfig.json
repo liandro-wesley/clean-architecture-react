@@ -16,6 +16,7 @@
       "@domain/*": ["domain/*"],
       "@infra/*": ["infra/*"],
       "@protocols/*": ["data/protocols/*"],
+      "@presentation/*": ["presentation/*"],
       "@errors/*": ["domain/errors/*"],
     },
     "allowJs": true,

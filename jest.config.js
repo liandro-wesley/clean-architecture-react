@@ -13,6 +13,7 @@ module.exports = {
     '@infra(.*)': '<rootDir>/src/infra/$1',
     '@domain/(.*)': '<rootDir>/src/domain/$1',
     '@errors/(.*)': '<rootDir>/src/domain/errors/$1',
+    '@presentation/(.*)': '<rootDir>/src/presentation/$1',
     '\\.scss$': 'identity-obj-proxy' // returns a dummy {}
   },
   transform: {

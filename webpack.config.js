@@ -16,6 +16,7 @@ module.exports = {
       '@domain': path.join(__dirname, './src/domain'),
       '@infra': path.join(__dirname, './src/infra'),
       '@protocols': path.join(__dirname, './src/data/protocols'),
+      '@presentation': path.join(__dirname, './src/presentation'),
       '@erros': path.join(__dirname, './src/domain/errors')
     }
   },
@@ -37,9 +38,11 @@ module.exports = {
       }
     ]
   },
-  deveServer: {
-    contentBase: './public',
-    writeToDiks: true,
+  devServer: {
+    devMiddleware: {
+      writeToDisk: true,
+      publicPath: './public'
+    },
     historyApiFallback: true
   },
   externals: {
