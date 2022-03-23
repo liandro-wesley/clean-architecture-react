@@ -1,0 +1,26 @@
+@import '../../scss/theme';
+.alert {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  max-height: 60px;
+  overflow-y: auto;
+  p {
+    word-wrap: break-word;
+    position: relative;
+  }
+}
+
+.success {
+  background-color: $success;
+  color: $black;
+}
+.error {
+  background-color: $error;
+  color: $white;
+}
+.warning {
+  background-color: $warning;
+  color: $black;
+}
+
