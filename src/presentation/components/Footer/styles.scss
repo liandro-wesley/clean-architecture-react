@@ -1,0 +1,21 @@
+@import '../../scss/main.scss';
+
+.footer{
+  width: 100%;
+  z-index: 10000;
+  background-color: $primary;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+
+  a {
+    margin-left: 4px;
+    color: $white;
+  }
+
+  @media only screen and (max-width: 1170px) {
+    flex-flow: column;
+  }
+}
