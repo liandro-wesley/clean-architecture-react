@@ -1,0 +1,70 @@
+@import '../../scss/main.scss';
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  width: 100%;
+  background-color: $primary;
+  line-height: 60px;
+  color: $white;
+  border-radius: 8px;
+  font-size: 16px;
+  border: none;
+
+  &:hover {
+    opacity: 0.9;
+  }
+  &:disabled {
+    background-color: $primaryLight;
+    opacity: 0.9;
+    cursor: not-allowed;
+  }
+}
+
+.login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .form{
+    background-color: $white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 1px  3px -1px $black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    align-self: center;
+    max-width: 400px;
+    width: 100%;
+    h2 {
+      // font-weight: 600;
+      color: $primaryDark;
+      text-align: center;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+    button {
+      margin-top: 30px;
+    }
+
+    a {
+      color: $primary;
+      text-align: center;
+      text-decoration: none;
+      text-transform: lowercase;
+      margin-top: 20px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .errorWrapper {
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+  }
+}
