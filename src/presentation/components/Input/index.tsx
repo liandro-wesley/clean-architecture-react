@@ -3,12 +3,13 @@ import styles from "./styles.scss";
 
 type InputProps = {
   valid: boolean;
+  ref?: any;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 const Input: React.FC<InputProps> = (props: InputProps) => {
   return (
     <div className={styles.inputWrapper}>
-      <input autoComplete="new-password" {...props} />
+      <input ref={props.ref} autoComplete="new-password" {...props} />
       {!props.valid && <span>🔴</span>}
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Alert from "@presentation/components/Alert";
 import Input from "@presentation/components/Input";
 import { SpinnerRoundFilled } from "spinners-react";
@@ -9,12 +9,20 @@ const Login: React.FC = () => {
   const [loading, setLoading] = useState(false);
   return (
     <div className={styles.login}>
-      <form className={styles.form} autoComplete="new-password">
-        <div className={styles.errorWrapper}>
+      <form
+        className={styles.form}
+        autoComplete="new-password"
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
+        {/* <div className={styles.errorWrapper}>
           <Alert type="error" description="erro" />
-        </div>
-        <h2>Login</h2>
+        </div> */}
+        <h2>Acesse o sistema</h2>
         <Input
+          autoFocus
+          required
           disabled={loading}
           id="email"
           name="email"
@@ -23,6 +31,7 @@ const Login: React.FC = () => {
           placeholder="Digite seu e-mail"
         />
         <Input
+          required
           disabled={loading}
           id="password"
           name="password"
