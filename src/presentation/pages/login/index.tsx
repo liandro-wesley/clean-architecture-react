@@ -14,6 +14,10 @@ const Login: React.FC = () => {
         autoComplete="new-password"
         onSubmit={(e) => {
           e.preventDefault();
+          setLoading(true);
+          setTimeout(() => {
+            setLoading(false);
+          }, 5000);
         }}
       >
         {/* <div className={styles.errorWrapper}>
