@@ -7,9 +7,12 @@ type InputProps = {
 } & InputHTMLAttributes<HTMLInputElement>;
 
 const Input: React.FC<InputProps> = (props: InputProps) => {
+  const handleEnableInput = (e: React.FocusEvent<HTMLInputElement>): void => {
+    e.target.readOnly = false;
+  };
   return (
     <div className={styles.inputWrapper}>
-      <input ref={props.ref} autoComplete="new-password" {...props} />
+      <input ref={props.ref} readOnly onFocus={handleEnableInput} {...props} />
       {!props.valid && <span>🔴</span>}
     </div>
   );
