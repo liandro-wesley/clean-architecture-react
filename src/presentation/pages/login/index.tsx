@@ -49,8 +49,9 @@ const Login: React.FC = () => {
           placeholder="Digite sua senha"
         />
         <Button
+          data-testid="submit"
           type="submit"
-          disabled={false}
+          disabled={true}
           loading={state.isLoading}
           buttontype="primary"
           loadingcolor="#4816B5"
