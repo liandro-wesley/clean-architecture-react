@@ -1,18 +1,20 @@
 import React, { ButtonHTMLAttributes } from "react";
+import styles from "./styles.scss";
 import { SpinnerRoundFilled } from "spinners-react";
 
 type ButtonProps = {
   loading?: boolean;
   body: React.ReactNode;
-  loadingColor?: string;
+  loadingcolor?: string;
+  buttontype?: "primary";
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   return (
-    <button {...props}>
+    <button {...props} className={`${styles.button}`}>
       {!props.loading && props.body}
       {props.loading && (
-        <SpinnerRoundFilled enabled={true} color={props.loadingColor} />
+        <SpinnerRoundFilled enabled={true} color={props.loadingcolor} />
       )}
     </button>
   );
