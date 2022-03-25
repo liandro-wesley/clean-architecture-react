@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Alert from "@presentation/components/Alert";
 import Input from "@presentation/components/Input";
 import styles from "./styles.scss";
 import Button from "@presentation/components/Button";
 
+type StateProps = {
+  isLoading: boolean;
+  errorMessage: string;
+};
+
 const Login: React.FC = () => {
+  const [state] = useState<StateProps>({
+    isLoading: false,
+    errorMessage: "",
+  });
   return (
-    <div className={styles.login}>
+    <div className={styles.login} data-testid="LoginPage">
       <form
         className={styles.form}
         autoComplete="new-password"
@@ -14,9 +23,11 @@ const Login: React.FC = () => {
           e.preventDefault();
         }}
       >
-        {/* <div className={styles.errorWrapper}>
-          <Alert type="error" description="erro" />
-        </div> */}
+        <div className={styles.errorWrapper} role="alertdialog">
+          {state.errorMessage && (
+            <Alert type="error" description={state.errorMessage} />
+          )}
+        </div>
         <h2>Acesse o sistema</h2>
         <Input
           autoFocus
@@ -40,7 +51,7 @@ const Login: React.FC = () => {
         <Button
           type="submit"
           disabled={false}
-          loading={false}
+          loading={state.isLoading}
           buttontype="primary"
           loadingcolor="#4816B5"
           body="Entrar"
