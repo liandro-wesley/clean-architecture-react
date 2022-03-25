@@ -18,4 +18,14 @@ describe("Login Component", () => {
     const submitButton = getByTestId("submit") as HTMLButtonElement;
     expect(submitButton.disabled).toBe(true);
   });
+  test("if initially errors in input of type email don't exist", () => {
+    const { getByTestId } = render(<Login />);
+    const emailInput = getByTestId("emailInput") as HTMLInputElement;
+    expect(emailInput.title).toBe("preencha o campo");
+  });
+  test("if initially errors in input of type password don't exist", () => {
+    const { getByTestId } = render(<Login />);
+    const passwordInput = getByTestId("passwordInput") as HTMLInputElement;
+    expect(passwordInput.title).toBe("preencha o campo");
+  });
 });
