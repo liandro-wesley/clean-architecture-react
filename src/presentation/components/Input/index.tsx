@@ -4,6 +4,7 @@ import styles from "./styles.scss";
 type InputProps = {
   valid: boolean;
   ref?: any;
+  errorText?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 const Input: React.FC<InputProps> = (props: InputProps) => {
@@ -12,8 +13,16 @@ const Input: React.FC<InputProps> = (props: InputProps) => {
   };
   return (
     <div className={styles.inputWrapper}>
-      <input ref={props.ref} readOnly onFocus={handleEnableInput} {...props} />
-      {!props.valid && <span>🔴</span>}
+      <input
+        {...props}
+        data-valid={props.valid}
+        className={!props.valid && "error"}
+        title={!props.valid ? "campo inválido" : "preencha o campo"}
+        ref={props.ref}
+        readOnly
+        onFocus={handleEnableInput}
+      />
+      {!props.valid && <span title={props.errorText}>🔴</span>}
     </div>
   );
 };

@@ -1,23 +1,4 @@
-@import '../../scss/main.scss';
-
-input {
-  transition: all .2s;
-  font-family: 'Roboto', sans-serif;
-  border: 1px solid $primaryLight;
-  line-height: 48px;
-  border-radius: 4px;
-  width: 100%;
-  padding: 0px 40px 0px 8px;
-  outline: none;
-  outline-color: $primaryDark;
-  &:focus {
-    box-shadow: 0 0 0 3px $primaryLight;
-    border-color: $primaryDark;
-  }
-  &:disabled {
-    cursor: not-allowed;
-  }
-}
+@import '../../scss/_theme';
 
 .inputWrapper {
   margin-top: 16px;
@@ -34,5 +15,33 @@ input {
     right: 8px;
     font-size: 12px;
     cursor: help;
+  }
+}
+
+input {
+  transition: all .2s;
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid $primaryDark;
+  line-height: 48px;
+  border-radius: 4px;
+  width: 100%;
+  padding: 0px 40px 0px 8px;
+  outline: none;
+  outline-color: $primaryDark;
+  &[data-valid="false"] {
+    border: 1px solid $error !important;
+    box-shadow: 0 0 0 3px #f09c9e;
+    color: $error;
+    &:focus {
+      border: 1px solid $error !important;
+      box-shadow: 0 0 0 3px #f09c9e;
+    }
+  }
+  &:focus {
+    box-shadow: 0 0 0 3px $primaryLight;
+    border-color: $primaryDark;
+  }
+  &:disabled {
+    cursor: not-allowed;
   }
 }

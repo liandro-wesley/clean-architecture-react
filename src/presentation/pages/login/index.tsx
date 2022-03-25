@@ -30,23 +30,25 @@ const Login: React.FC = () => {
         </div>
         <h2>Acesse o sistema</h2>
         <Input
+          placeholder="Digite seu e-mail"
+          data-testid="emailInput"
+          disabled={false}
+          type="email"
+          name="email"
+          id="email"
+          valid={true}
           autoFocus
           required
-          disabled={false}
-          id="email"
-          name="email"
-          type="email"
-          valid={true}
-          placeholder="Digite seu e-mail"
         />
         <Input
-          required
-          disabled={false}
-          id="password"
-          name="password"
-          type="password"
-          valid={true}
           placeholder="Digite sua senha"
+          data-testid="passwordInput"
+          disabled={false}
+          type="password"
+          name="password"
+          id="password"
+          valid={true}
+          required
         />
         <Button
           data-testid="submit"
