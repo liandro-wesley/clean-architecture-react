@@ -15,6 +15,8 @@ const Input: React.FC<InputProps> = (props: InputProps) => {
     <div className={styles.inputWrapper}>
       <input
         {...props}
+        onChange={props.onChange}
+        value={props.value}
         data-valid={props.valid}
         className={!props.valid && "error"}
         title={!props.valid ? "campo inválido" : "preencha o campo"}

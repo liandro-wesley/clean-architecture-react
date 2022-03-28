@@ -1,19 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Alert from "@presentation/components/Alert";
 import Input from "@presentation/components/Input";
 import styles from "./styles.scss";
 import Button from "@presentation/components/Button";
+import { Validation } from "@presentation/protocols/validation";
 
 type StateProps = {
   isLoading: boolean;
   errorMessage: string;
+  email: string;
+  password: string;
 };
 
-const Login: React.FC = () => {
-  const [state] = useState<StateProps>({
+type LoginProps = {
+  validation?: Validation;
+};
+
+const Login: React.FC<LoginProps> = ({ validation }: LoginProps) => {
+  const [state, setState] = useState<StateProps>({
     isLoading: false,
     errorMessage: "",
+    email: "",
+    password: "",
   });
+  useEffect(() => {
+    validation.validate({
+      email: state.email,
+    });
+  }, [state.email]);
+  useEffect(() => {
+    validation.validate({
+      password: state.password,
+    });
+  }, [state.password]);
+
   return (
     <div className={styles.login} data-testid="LoginPage">
       <form
@@ -32,6 +52,13 @@ const Login: React.FC = () => {
         <Input
           placeholder="Digite seu e-mail"
           data-testid="emailInput"
+          value={state.email}
+          onChange={(e) =>
+            setState({
+              ...state,
+              email: e.target.value,
+            })
+          }
           disabled={false}
           type="email"
           name="email"
@@ -43,6 +70,13 @@ const Login: React.FC = () => {
         <Input
           placeholder="Digite sua senha"
           data-testid="passwordInput"
+          value={state.password}
+          onChange={(e) =>
+            setState({
+              ...state,
+              password: e.target.value,
+            })
+          }
           disabled={false}
           type="password"
           name="password"
