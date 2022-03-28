@@ -1,19 +1,38 @@
 import React from "react";
 import Login from ".";
-import { render, RenderResult } from "@testing-library/react";
+import {
+  render,
+  RenderResult,
+  fireEvent,
+  cleanup,
+} from "@testing-library/react";
+import { Validation } from "@presentation/protocols/validation";
 
 type SutTypes = {
   sut: RenderResult;
+  validationSpy: ValidationSpy;
 };
 
+class ValidationSpy implements Validation {
+  errorMessage: string;
+  input: object;
+  validate(input: object): string {
+    this.input = input;
+    return this.errorMessage;
+  }
+}
+
 const makeSut = (): SutTypes => {
-  const sut = render(<Login />);
+  const validationSpy = new ValidationSpy();
+  const sut = render(<Login validation={validationSpy} />);
   return {
     sut,
+    validationSpy,
   };
 };
 
 describe("Login Component", () => {
+  afterEach(cleanup);
   test("if isLoading is initially equal to false", () => {
     const { sut } = makeSut();
     const isLoading = sut.getByTestId("submit");
@@ -38,5 +57,21 @@ describe("Login Component", () => {
     const { sut } = makeSut();
     const passwordInput = sut.getByTestId("passwordInput") as HTMLInputElement;
     expect(passwordInput.title).toBe("preencha o campo");
+  });
+  test("if call Validation with correct email", () => {
+    const { sut, validationSpy } = makeSut();
+    const emailInput = sut.getByTestId("emailInput");
+    fireEvent.input(emailInput, { target: { value: "any_email" } });
+    expect(validationSpy.input).toEqual({
+      email: "any_email",
+    });
+  });
+  test("if call Validation with correct password", () => {
+    const { sut, validationSpy } = makeSut();
+    const passwordInput = sut.getByTestId("passwordInput");
+    fireEvent.input(passwordInput, { target: { value: "any_password" } });
+    expect(validationSpy.input).toEqual({
+      password: "any_password",
+    });
   });
 });
